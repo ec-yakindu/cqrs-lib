@@ -1,8 +1,8 @@
 language: java
 before_deploy:
-- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
-- export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
-  -v '\[')
+  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
+    -v '\[')
 deploy:
   name: $project_version
   provider: releases
@@ -12,3 +12,13 @@ deploy:
   file: target/cqrs-lib-$project_version.jar
   on:
     repo: ec-yakindu/cqrs-lib
+
+before_install:
+  - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
+  - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
+
+install:
+  mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+
+script:
+  mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease

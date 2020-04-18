@@ -67,8 +67,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <release>11</release>
                 </configuration>
             </plugin>
         </plugins>
@@ -92,9 +91,9 @@
                         <version>1.6.8</version>
                         <extensions>true</extensions>
                         <configuration>
-                            <serverid>ossrh</serverid>
-                            <nexusurl>https://oss.sonatype.org/</nexusurl>
-                            <autoreleaseafterclose>true</autoreleaseafterclose>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
                     <!-- To generate javadoc -->
