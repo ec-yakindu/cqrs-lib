@@ -14,7 +14,7 @@
 
     <groupId>com.github.ec-yakindu</groupId>
     <artifactId>cqrs-lib</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.${buildNumber}-SNAPSHOT</version>
     <name>cqrs-lib</name>
     <description>Simple java cqrs lib</description>
 
