@@ -2,7 +2,7 @@ language: java
 
 before_deploy:
   - mvn help:evaluate -N -DbuildNumber=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\['
-  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+  - export project_version=$(mvn help:evaluate -N -DbuildNumber=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\[')
 
 deploy:
   name: $project_version
@@ -20,7 +20,7 @@ before_install:
   - mvn install -DskipTests=true -DbuildNumber=$TRAVIS_BUILD_NUMBER
 
 install:
-  mvn --settings .maven.xml install -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+  mvn --settings .maven.xml install -DbuildNumber=$TRAVIS_BUILD_NUMBER -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 
 script:
   mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
