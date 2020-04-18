@@ -4,7 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ec.yakindu.cqrs</groupId>
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <groupId>com.github.ec-yakindu</groupId>
     <artifactId>cqrs-lib</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>cqrs-lib</name>
@@ -15,6 +23,39 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
+
+    <scm>
+        <connection>scm:git:https://github.com/ec-yakindu/cqrs-lib.git</connection>
+        <url>https://github.com/ec-yakindu/cqrs-lib</url>
+    </scm>
+
+    <distributionManagement>
+        <site>
+            <id>api.wiki</id>
+            <url>https://github.com/ec-yakindu/cqrs-lib/wiki</url>
+        </site>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <name>Mario Morocho</name>
+            <email>mario@yakidu.ec</email>
+            <organizationUrl>https://www.yakindu.ec</organizationUrl>
+        </developer>
+        <developer>
+            <name>José Guevara</name>
+            <email>jose@jewif.com</email>
+            <organizationUrl>https://www.yakindu.ec</organizationUrl>
+        </developer>
+    </developers>
 
     <dependencies>
     </dependencies>
@@ -32,4 +73,6 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
