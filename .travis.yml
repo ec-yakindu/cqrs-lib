@@ -1,1 +1,16 @@
 language: java
+
+before_deploy:
+- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+- export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
+  -v '\[')
+
+deploy:
+  provider: releases
+  api_key:
+    secure: TjH4rQFp9XYacRKiA7vBmeMLvP12VuhxMDiMzS1S/j0td2vBMKQySs/j3NVC6QuNcysQB7Gufz0+/jbD2z/V3bh/0M6Pfk9yQmpavy3PePUsXr3sFhz9miRi/OQbmSrhrDF0pF3nCDqh/+61PeilYiVDaj9vsPqC+j+CJN9lQTPOYx0YtLbfDG9sXBp+CQj6UIhGCvI94iU0VOTjiP8+u3YQlFjZSTgaY36QnCqfa233XriufX0U3ueYqS+MUK37GS09FiN6Xb9k3uw+yPsLDSh+/pWcJ3A7v6U9SAvNBG8N/UEUMnEsqHVem21lT3i2JMZk7pxccxg9OkWGhGHG1dBqxbzKDZ+uu1KCfC6vPZSIJoxsCf9Xbvvgi9ggKEcn9CTiJMVhsDJ6+LkwUdvTCJl/6KP9gtCXoLuloKfEEUGMfC7hPXZ/wrpPXytvBGKc5fyHKSD9DBgnbCNOoTIntiw6XRoshrAFHTn+1QDNrIgaJ4rtyEsgnPBWKTZG3XXbC4V0YxpV2pea/5Lxv+LEOkS9Hnrh/2uU12IJOGELVxiAiH8OElTZ+/exJjEoWhBJeSnJumZtweY5wtlw/nepYgBtnvK2Rj99vCFfhgKjBl6CDzw/mansvkmxiz+5OsaLgYUdgScU5QN6FFQkHBOwY8tOHzar/UKvKYeCOWHK53Y=
+  file: ''
+  skip_cleanup: true
+  on:
+    repo: ec-yakindu/cqrs-lib
+  name: $project_version
