@@ -17,6 +17,7 @@
     <version>1.0.${buildNumber}</version>
     <name>cqrs-lib</name>
     <description>Simple java cqrs lib</description>
+    <url>https://github.com/ec-yakindu/cqrs-lib</url>
 
     <properties>
         <java.version>11</java.version>
