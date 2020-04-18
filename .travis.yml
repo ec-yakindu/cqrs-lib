@@ -23,4 +23,4 @@ install:
   mvn --settings .maven.xml install -DbuildNumber=$TRAVIS_BUILD_NUMBER -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 
 script:
-  mvn clean deploy --settings .maven.xml -DskipTests=true -B -U -Prelease
+  mvn clean deploy -DbuildNumber=$TRAVIS_BUILD_NUMBER --settings .maven.xml -DskipTests=true -B -U -Prelease
