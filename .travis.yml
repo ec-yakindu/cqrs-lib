@@ -1,8 +1,8 @@
 language: java
 
 before_deploy:
-  - mvn help:evaluate -N -DbuildNumber=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\['
-  - export project_version=$(mvn help:evaluate -N -DbuildNumber=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\[')
+  - mvn help:evaluate -N -Drevision=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\['
+  - export project_version=$(mvn help:evaluate -N -Drevision=$TRAVIS_BUILD_NUMBER -Dexpression=project.version|grep -v '\[')
 
 deploy:
   name: $project_version
@@ -17,10 +17,10 @@ deploy:
 before_install:
   - echo $GPG_SECRET_KEYS | base64 --decode | $GPG_EXECUTABLE --import
   - echo $GPG_OWNERTRUST | base64 --decode | $GPG_EXECUTABLE --import-ownertrust
-  - mvn install -DskipTests=true -DbuildNumber=$TRAVIS_BUILD_NUMBER
+  - mvn install -DskipTests=true -Drevision=$TRAVIS_BUILD_NUMBER
 
 install:
-  mvn --settings .maven.xml install -DbuildNumber=$TRAVIS_BUILD_NUMBER -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
+  mvn --settings .maven.xml install -Drevision=$TRAVIS_BUILD_NUMBER -DskipTests=true -Dgpg.skip -Dmaven.javadoc.skip=true -B -V
 
 script:
-  mvn clean deploy -DbuildNumber=$TRAVIS_BUILD_NUMBER --settings .maven.xml -DskipTests=true -B -U -Prelease
+  mvn clean deploy -Drevision=$TRAVIS_BUILD_NUMBER --settings .maven.xml -DskipTests=true -B -U -Prelease

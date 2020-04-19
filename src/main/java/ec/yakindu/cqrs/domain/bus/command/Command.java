@@ -1,6 +1,7 @@
-package ec.yakindu.cqrs.domain.command;
+package ec.yakindu.cqrs.domain.bus.command;
 
 import ec.yakindu.cqrs.domain.bus.Message;
+import ec.yakindu.cqrs.domain.bus.MessageType;
 
 import java.util.UUID;
 
@@ -10,11 +11,11 @@ abstract public class Command extends Message {
         super(id);
     }
 
-    public String type() {
-        return "command";
+    public MessageType type() {
+        return MessageType.COMMAND;
     }
 
-    abstract public static class Builder<T> {
+    public static class Builder<T> {
         protected UUID commandId;
 
         public T commandId(UUID value) {
