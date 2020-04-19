@@ -14,7 +14,7 @@
 
     <groupId>com.github.ec-yakindu</groupId>
     <artifactId>cqrs-lib</artifactId>
-    <version>1.0.${buildNumber}</version>
+    <version>1.0.${revision}</version>
     <name>cqrs-lib</name>
     <description>Simple java cqrs lib</description>
     <url>https://github.com/ec-yakindu/cqrs-lib</url>
@@ -23,7 +23,7 @@
         <java.version>11</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <buildNumber>0</buildNumber>
+        <revision>0</revision>
     </properties>
 
     <scm>
@@ -60,6 +60,18 @@
     </developers>
 
     <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.4.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -71,6 +83,11 @@
                 <configuration>
                     <release>11</release>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
             </plugin>
         </plugins>
     </build>

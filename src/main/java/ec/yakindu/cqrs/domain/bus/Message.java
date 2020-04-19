@@ -14,5 +14,5 @@ abstract public class Message {
         return this.id;
     }
 
-    abstract public String type();
+    abstract public MessageType type();
 }
