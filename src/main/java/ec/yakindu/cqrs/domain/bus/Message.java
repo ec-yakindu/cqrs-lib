@@ -2,17 +2,12 @@ package ec.yakindu.cqrs.domain.bus;
 
 import java.util.UUID;
 
-abstract public class Message {
+public interface Message {
 
-    private UUID id;
+    UUID id();
 
-    public Message(UUID id) {
-        this.id = id;
-    }
+    MessageType type();
 
-    public UUID id() {
-        return this.id;
-    }
+    String fullyQualifiedName();
 
-    abstract public MessageType type();
 }

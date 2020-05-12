@@ -1,11 +1,11 @@
 package ec.yakindu.cqrs.domain.bus.command;
 
-import ec.yakindu.cqrs.domain.bus.Message;
+import ec.yakindu.cqrs.domain.bus.AbstractMessage;
 import ec.yakindu.cqrs.domain.bus.MessageType;
 
 import java.util.UUID;
 
-abstract public class Command extends Message {
+abstract public class Command extends AbstractMessage {
 
     public Command(UUID id) {
         super(id);

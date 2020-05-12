@@ -1,9 +1,9 @@
 package ec.yakindu.cqrs.infrastructure.bus;
 
 import ec.yakindu.cqrs.domain.bus.Inflector;
-import ec.yakindu.cqrs.domain.bus.Message;
+import ec.yakindu.cqrs.domain.bus.AbstractMessage;
 
-public class NameInflector<T extends Message> implements Inflector<T> {
+public class NameInflector<T extends AbstractMessage> implements Inflector<T> {
 
     @Override
     public String inflect(T message) {

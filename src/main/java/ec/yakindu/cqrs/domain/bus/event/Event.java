@@ -1,7 +1,5 @@
 package ec.yakindu.cqrs.domain.bus.event;
 
-import ec.yakindu.cqrs.domain.bus.MessageType;
-
 import java.util.Map;
 
 public interface Event {
@@ -10,9 +8,7 @@ public interface Event {
 
     String eventName();
 
-    String fullyQualifiedName();
-
-    MessageType type();
+//    String fullyQualifiedName();
 
     String aggregateId();
 

@@ -1,11 +1,11 @@
 package ec.yakindu.cqrs.domain.bus.query;
 
-import ec.yakindu.cqrs.domain.bus.Message;
+import ec.yakindu.cqrs.domain.bus.AbstractMessage;
 import ec.yakindu.cqrs.domain.bus.MessageType;
 
 import java.util.UUID;
 
-abstract public class Query extends Message {
+abstract public class Query extends AbstractMessage {
 
     public Query(UUID id) {
         super(id);
