@@ -9,4 +9,9 @@ public class FakeCommand extends Command {
     public FakeCommand() {
         super(UUID.randomUUID());
     }
+
+    @Override
+    public String fullyQualifiedName() {
+        return "fake.command";
+    }
 }
